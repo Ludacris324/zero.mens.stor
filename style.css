@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #121212;
+  color: white;
+  font-family: sans-serif;
+  direction: rtl;
+}
+
+header {
+  background: #000;
+  border-bottom: 2px solid #d4af37;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+.logo {
+  height: 50px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+.cart-btn {
+  background: #d4af37;
+  color: black;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  color: #d4af37;
+}
+.products-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* توزيع المنتجات بالعرض */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.product-card {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.3s;
+}
+.product-card:hover {
+  border-color: #d4af37;
+  transform: translateY(-5px);
+}
+.product-card img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+.product-info {
+  padding: 15px;
+}
+.price {
+  color: #d4af37;
+  font-size: 1.2rem;
+  display: block;
+  margin: 10px 0;
+}
+.add-to-cart {
+  background: #d4af37;
+  color: black;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+/* تنسيق الحاوية لتوزيع 3 مناطق: يمين، نص، شمال */
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* بيبعد الـ 3 مناطق عن بعض */
+  align-items: center;
+  padding: 10px 20px;
+}
+
+/* تكبير اللوجو يا عم */
+.logo {
+  height: 300px; /* كبرناه من 50 لـ 100 عشان يبان فخامته */
+  width: auto;
+  transition: 0.3s;
+}
+
+/* توسيط القائمة في نص الهيدر */
+.main-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* حركة سحرية بتخلي الكلام في النص بالظبط */
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px; /* مسافة شيك بين الرئيسية والمتجر */
+}
+
+.nav-links a {
+  color: #d4af37; /* اللون الذهبي الملكي */
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* السلة على الشمال خالص */
+.cart-area {
+  display: flex;
+  align-items: center;
+}
+/* توزيع الهيدر */
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  position: relative; /* مهم عشان نوسطن السلة */
+}
+
+/* تكبير اللوجو */
+.logo {
+  height: 200px;
+}
+
+/* وضع السلة في المنتصف بالظبط */
+.cart-area-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* القائمة على الشمال */
+.left-nav {
+  display: flex;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+/* تصميم الأقسام (Dropdown) */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none; /* مخفية في البداية */
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #1a1a1a;
+  border: 1px solid #d4af37;
+  list-style: none;
+  min-width: 150px;
+  z-index: 1000;
+}
+
+.dropdown-menu li a {
+  padding: 10px;
+  display: block;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.dropdown-menu li a:hover {
+  background: #d4af37;
+  color: black;
+}
+
+/* إظهار الأقسام عند الوقوف بالماوس على "المتجر" */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+/* تنسيقات للتابلت (شاشات أقل من 992px) */
+@media (max-width: 992px) {
+  header .container {
+    flex-direction: column; /* العناصر تيجي تحت بعض في الهيدر */
+    gap: 15px;
+  }
+
+  .cart-wrapper {
+    position: static; /* نلغي التوسيط المطلق عشان ميزحمش الدنيا */
+    transform: none;
+    margin: 10px 0;
+  }
+
+  .logo {
+    height: 70px; /* نصغر اللوجو شوية للتابلت */
+  }
+}
+
+/* تنسيقات للموبايل (شاشات أقل من 600px) */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem; /* نصغر الخط عشان ميبقاش كبير قوى على الشاشة */
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr; /* المنتج ياخد عرض الشاشة كله */
+    padding: 10px;
+  }
+
+  .nav-links {
+    gap: 15px;
+    font-size: 0.9rem;
+  }
+
+  .product-card img {
+    height: 300px; /* نصغر طول الصورة شوية للموبايل */
+  }
+}
